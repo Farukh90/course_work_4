@@ -1,0 +1,92 @@
+[
+    {
+        "id_": "97033829",
+        "region": "Алматы",
+        "name": "Middle Data Engineer",
+        "salary": 800000,
+        "currency": "KZT",
+        "requirement": "Опыт работы с базами данных PostgreSQL и Clickhouse. — Хорошее знание Python, практические знания SQL, оптимизация больших запросов. — Иметь опыт в...",
+        "vacancy_url": "https://hh.ru/vacancy/97033829"
+    },
+    {
+        "id_": "96291009",
+        "region": "Москва",
+        "name": "CTO (AR/AI)",
+        "salary": 800000,
+        "currency": "RUR",
+        "requirement": "Опыт работы с продуктами, основанными на технологиях AR и AI, для мобильных и веб-платформ. Глубокое понимание применения технологий AR...",
+        "vacancy_url": "https://hh.ru/vacancy/96291009"
+    },
+    {
+        "id_": "96501677",
+        "region": "Астана",
+        "name": "Бизнес-аналитик направления Дата аналитика",
+        "salary": 513500,
+        "currency": "KZT",
+        "requirement": "умение анализировать информацию. - быть командным игроком. - внимательность и ответственность. Знание языков. - русский; - казахский; - английский. Компьютерные навыки: - знание технологий Python, Data...",
+        "vacancy_url": "https://hh.ru/vacancy/96501677"
+    },
+    {
+        "id_": "96737886",
+        "region": "Санкт-Петербург",
+        "name": "Программист-разработчик",
+        "salary": 500000,
+        "currency": "RUR",
+        "requirement": "С++, Git, STL, CMake, Linux, C++11, C++14,Bash, Qt5, Embedded, RTOS, ARM Cortex-M4, C, ARM...",
+        "vacancy_url": "https://hh.ru/vacancy/96737886"
+    },
+    {
+        "id_": "96969233",
+        "region": "Астана",
+        "name": "Аналитик Данных",
+        "salary": 400000,
+        "currency": "KZT",
+        "requirement": "Опыт работы от 1 года в области анализа данных. Знание Python и SQL. Уверенная работа с Excel/Sheets. ",
+        "vacancy_url": "https://hh.ru/vacancy/96969233"
+    },
+    {
+        "id_": "95923961",
+        "region": "Москва",
+        "name": "QA Lead / Руководитель команды тестирования",
+        "salary": 370000,
+        "currency": "RUR",
+        "requirement": "Работы не менее чем с одним скриптовым языком (Python/ TCL/Bash/Perl) или другими языками программирования для написания тестов. ",
+        "vacancy_url": "https://hh.ru/vacancy/95923961"
+    },
+    {
+        "id_": "96627985",
+        "region": "Москва",
+        "name": "Сетевой инженер",
+        "salary": 350000,
+        "currency": "RUR",
+        "requirement": "Умение работать со скриповыми языками (bash, python). Опыт работы с системами управления конфигурациями (ansible). Опыт работы с системами виртуализации (qemu+kvm). ",
+        "vacancy_url": "https://hh.ru/vacancy/96627985"
+    },
+    {
+        "id_": "96678237",
+        "region": "Астана",
+        "name": "Инженер по информационной безопасности",
+        "salary": 350000,
+        "currency": "KZT",
+        "requirement": "знания Linux, Network. Базовые знания написания скриптов (bash, PowerShell, python). Опыт работы со стеком Elastic, JSON, Regexp, Kafka, Docker, Ansible. ",
+        "vacancy_url": "https://hh.ru/vacancy/96678237"
+    },
+    {
+        "id_": "96711383",
+        "region": "Москва",
+        "name": "Python developer",
+        "salary": 345000,
+        "currency": "RUR",
+        "requirement": "Опыт работы с Python до 4 лет. Опыт работы с Docker. Глубокое понимание SQL. Умение писать и поддерживать тесты.",
+        "vacancy_url": "https://hh.ru/vacancy/96711383"
+    },
+    {
+        "id_": "96537873",
+        "region": "Астана",
+        "name": "Backend developer (Python)",
+        "salary": 300000,
+        "currency": "KZT",
+        "requirement": "Опыт работы с: Backend фреймворками Flask/Django, реляционными и нереляционными базами данных, HTTP запросами, системы контроля версий Git. ",
+        "vacancy_url": "https://hh.ru/vacancy/96537873"
+    }
+]
