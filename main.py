@@ -11,6 +11,9 @@ file_path = os.path.join(ROOT_DIR, 'data', 'vacancies_from_api.json') #назв�
 filtred_file_path = os.path.join(ROOT_DIR, 'data', 'filtred_vacancies.json') #название файла с результатом фильтрации
 favorite_file_path = os.path.join(ROOT_DIR, 'data', 'favorite_vacancies.json') #название файла избранных вакансий
 
+red_col = '\033[91m'
+reset_red_col = '\033[0m'
+
 def main():
     hh_api_instance = HHApi()
     parser_instance = VacanciesParser()
@@ -22,7 +25,7 @@ def main():
     if page_quantity and 0 < int(page_quantity) <=20:
         hh_api_instance.load_vacancies(key_word, int(page_quantity)) #запрос через апи
     else:
-        print('вы ввели неверное число, по умолчанию будет загружено 2 страницы')
+        print(f'{red_col}вы ввели неверное число, по умолчанию будет загружено 2 страницы{reset_red_col}')
         time.sleep(2)
         hh_api_instance.load_vacancies(key_word) #запрос через апи
     vacancies_list_from_api = hh_api_instance.vacancies #получаем список словарей вакансий которые пришли с апи
@@ -71,12 +74,13 @@ def main():
 
         elif user_choice and user_choice == '4' and user_choice in choice_number:  # фильтрация по диапазону зарплат
             salary_range = input('введите диапазон зарплат через пробел: ')
-            splited_input = salary_range.split(' ')
-            min_ = int(splited_input[0])
-            max_ = int(splited_input[1])
-            print(max_)
-            vacancies_for_user_interact = data_manager_instance.filter_by_salary_range(vacancies_for_user_interact, min_, max_)
-            list(map(print, vacancies_for_user_interact))
+            if salary_range and len(salary_range.split(' ')) == 2:
+                splited_input = salary_range.split(' ')
+                min_ = int(splited_input[0])
+                max_ = int(splited_input[1])
+                vacancies_for_user_interact = data_manager_instance.filter_by_salary_range(vacancies_for_user_interact, min_, max_)
+                list(map(print, vacancies_for_user_interact))
+            else: print(f'{red_col}Ввели некорректное значение. сбросьте фильтр!{reset_red_col}')
 
         elif user_choice and user_choice == '5' and user_choice in choice_number: #вывод топ 10 по зарплате
             vacancies_for_user_interact = data_manager_instance.get_sorted_top_10(vacancies_for_user_interact, 10)
