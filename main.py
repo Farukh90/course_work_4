@@ -52,24 +52,24 @@ def main():
 9  - удаление вакансии (по ID)
 10 - сбросить фильтры
 0  - завершение программы''')
+        choice_number = ['1','2','3','4','5','6','7','8','9','10','0']
+        user_choice = input(f"{'⛔'*110}\nВведите номер и нажмите 'enter' для пуска действия: ")
 
-        user_choice = int(input(f"{'⛔'*110}\nВведите номер и нажмите 'enter' для пуска действия: "))
-
-        if user_choice == 1: #для сортировки по региону
+        if user_choice and user_choice == '1' and user_choice in choice_number: #для сортировки по региону
             filter_word_by_area = input('Введите регион: ').title()
             vacancies_for_user_interact = data_manager_instance.filter_by_area(vacancies_for_user_interact, filter_word_by_area)
             list(map(print, vacancies_for_user_interact))
 
-        elif user_choice == 2: #сортировка по убыванию зарплат
+        elif user_choice and user_choice == '2' and user_choice in choice_number: #сортировка по убыванию зарплат
             vacancies_for_user_interact = data_manager_instance.sort_by_salary(vacancies_for_user_interact)
             list(map(print, vacancies_for_user_interact))
 
-        elif user_choice == 3: #фильтрация по валюте
+        elif user_choice and user_choice == '3' and user_choice in choice_number: #фильтрация по валюте
             filter_word = input('Введите валюту: ').upper()
             vacancies_for_user_interact = data_manager_instance.filter_by_currency(vacancies_for_user_interact, filter_word)
             list(map(print, vacancies_for_user_interact))
 
-        elif user_choice == 4:  # фильтрация по диапазону зарплат
+        elif user_choice and user_choice == '4' and user_choice in choice_number:  # фильтрация по диапазону зарплат
             salary_range = input('введите диапазон зарплат через пробел: ')
             splited_input = salary_range.split(' ')
             min_ = int(splited_input[0])
@@ -78,40 +78,42 @@ def main():
             vacancies_for_user_interact = data_manager_instance.filter_by_salary_range(vacancies_for_user_interact, min_, max_)
             list(map(print, vacancies_for_user_interact))
 
-        elif user_choice == 5: #вывод топ 10 по зарплате
+        elif user_choice and user_choice == '5' and user_choice in choice_number: #вывод топ 10 по зарплате
             vacancies_for_user_interact = data_manager_instance.get_sorted_top_10(vacancies_for_user_interact, 10)
             list(map(print, vacancies_for_user_interact))
 
-        elif user_choice == 6: #добавить в избранное (по ID)
+        elif user_choice and user_choice == '6' and user_choice in choice_number: #добавить в избранное (по ID)
             vacancy_id = str(input('Введите ID вакансии: '))
             favorite_vacancies += data_manager_instance.add_favorite_vacancy_by_id(vacancies_for_user_interact, vacancy_id)
 
-        elif user_choice == 7: #вывод избранных вакансий на экран
+        elif user_choice and user_choice == '7' and user_choice in choice_number: #вывод избранных вакансий на экран
             list(map(print, favorite_vacancies))
 
-        elif user_choice == 8: #удалить из избранного (по ID)
+        elif user_choice and user_choice == '8' and user_choice in choice_number: #удалить из избранного (по ID)
             vacancy_id = str(input('Введите ID вакансии: '))
             favorite_vacancies = data_manager_instance.del_vacancy_by_id(favorite_vacancies,vacancy_id)
 
-        elif user_choice == 9: #удаление вакансии (по ID)
+        elif user_choice and user_choice == '9' and user_choice in choice_number: #удаление вакансии (по ID)
             vacancy_id = str(input('Введите ID вакансии: '))
             vacancies_for_user_interact = data_manager_instance.del_vacancy_by_id(vacancies_for_user_interact, vacancy_id)
 
-        elif user_choice == 10: #сбросить фильтры
+        elif user_choice and user_choice == '10' and user_choice in choice_number: #сбросить фильтры
             vacancies_for_user_interact = loaded_vacancies_list_from_file
             list(map(print, vacancies_for_user_interact))
 
-        elif user_choice == 0: #завершение программы
+        elif user_choice and user_choice == '0' and user_choice in choice_number: #завершение программы
             data_manager_instance.json_saver.save_file(vacancies_for_user_interact, filtred_file_path)
+            break
 
-            try:
-                data_manager_instance.json_saver.save_file(favorite_vacancies, favorite_file_path)
+        else:
+            print('введите номер!')
+            continue
 
-            except NameError as e:
-                print(f"Не удалось сохранить избранные вакансии. ошибка: {e}")
+        try:
+            data_manager_instance.json_saver.save_file(favorite_vacancies, favorite_file_path)
 
-            finally:
-                break
+        except NameError as e:
+            print(f"Не удалось сохранить избранные вакансии. ошибка: {e}")
 
 
 if __name__ == "__main__":
