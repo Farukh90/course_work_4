@@ -77,8 +77,10 @@ class DataManager():
         for vacancy in vacancies_list:
             if vacancy_id == vacancy.id_:
                 new_list.append(vacancy)
-                print(f"{red_col} Вакансия с айди '{vacancy.id_}'  добавлена в избранное.{rest_red_col}")
+                print(f"{red_col} Вакансия с айди '{vacancy_id}'  добавлена в избранное.{rest_red_col}")
                 break
+        if len(new_list) == 0:
+            print(f"{red_col} Вакансии с айди '{vacancy_id}' не существует.{rest_red_col}")
         return new_list
 
     def del_vacancy_by_id(self, vacancies_list, id_number):
