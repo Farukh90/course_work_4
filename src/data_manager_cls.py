@@ -1,9 +1,12 @@
 
+red_col = '\033[91m'
+rest_red_col = '\033[0m'
 class DataManager():
     def __init__(self, json_saver):
         self.json_saver = json_saver
 
     '''реализованы методы для сортировки, фильтрации, добавления, удаления объектов вакансий'''
+
 
     def filter_by_area(self, vacancies_list, region_name: str):
         '''фильтрует по региону'''
@@ -14,10 +17,10 @@ class DataManager():
                 filtred_vacancies.append(vacancy)
                 catched += 1
         if catched != 0:
-            print(f"количество совпадений {catched}")
+            print(f"{red_col}количество совпадений {catched}{rest_red_col}")
             return filtred_vacancies
         else:
-            print(f"совпадение по региону под номером '{region_name}' не найдено, сбрось фильтр!")
+            print(f"{red_col}совпадение по региону '{region_name}' не найдено, сбрось фильтр!{rest_red_col}")
             return filtred_vacancies
 
     def filter_by_currency(self, vacancies_list, currency: str):
@@ -29,10 +32,10 @@ class DataManager():
                 filtred_by_currency.append(vacancy)
                 catched += 1
         if catched != 0:
-            print(f"количество совпадений {catched}")
+            print(f"{red_col}количество совпадений {catched}{rest_red_col}")
             return filtred_by_currency
         else:
-            print(f"валюта '{currency}' не найдена, сбрось фильтр!")
+            print(f"{red_col}валюта '{currency}' не найдена, сбрось фильтр!{rest_red_col}")
             return filtred_by_currency
 
     def sort_by_salary(self, vacancies_list):
@@ -53,19 +56,19 @@ class DataManager():
                 filtred_list.append(vacancy)
                 catched += 1
         if catched != 0:
-            print(f"количество совпадений {catched}")
+            print(f"{red_col}количество совпадений {catched}{rest_red_col}")
             return filtred_list
         else:
-            print(f"зарплаты в диапазоне '{salary_min}' - '{salary_max}' отсутствуют, сбрось фильтр!")
+            print(f"{red_col}зарплаты в диапазоне '{salary_min}' - '{salary_max}' отсутствуют, сбрось фильтр!{rest_red_col}")
             return filtred_list
 
     def add_vacancy(self, vacancies_list, vacancy_instance):
         '''добавляет экземпляр вакансии в список экземпляров вакансий'''
         if vacancy_instance in vacancies_list:
-            print(f"Вакансия '{vacancy_instance}' уже существует.")
+            print(f"{red_col}Вакансия '{vacancy_instance}' уже существует.{rest_red_col}")
         else:
             vacancies_list.append(vacancy_instance)
-            print(f" '{vacancy_instance}' Вакансия добавлена.")
+            print(f"{red_col} '{vacancy_instance}' Вакансия добавлена.{rest_red_col}")
         return vacancies_list
 
     def add_favorite_vacancy_by_id(self, vacancies_list, vacancy_id):
@@ -74,7 +77,7 @@ class DataManager():
         for vacancy in vacancies_list:
             if vacancy_id == vacancy.id_:
                 new_list.append(vacancy)
-                print(f" Вакансия с айди '{vacancy.id_}'  добавлена в избранное.")
+                print(f"{red_col} Вакансия с айди '{vacancy.id_}'  добавлена в избранное.{rest_red_col}")
                 break
         return new_list
 
@@ -82,7 +85,7 @@ class DataManager():
         '''удаляет экземпляр вакансии по id'''
         new_vacancies_list = [vacancy for vacancy in vacancies_list if vacancy.id_ != id_number]
         if len(new_vacancies_list) == len(vacancies_list):
-            print(f"Вакансия с id '{id_number}' не найдена.")
+            print(f"{red_col}Вакансия с id '{id_number}' не найдена.{rest_red_col}")
         else:
-            print(f"Вакансия с id '{id_number}' удалена.")
+            print(f"{red_col}Вакансия с id '{id_number}' удалена.{rest_red_col}")
         return new_vacancies_list
